@@ -197,13 +197,13 @@
       color: black;
       width: 100%;
       height: 50px;
-      font-size: 14px;
+      font-size: 10px;
       font-weight: bold;
       padding-left: 30px; }
       .formUpload input::-webkit-input-placeholder, .formUpload input::-moz-placeholder, .formUpload input:-moz-placeholder, .formUpload input:-ms-input-placeholder {
         opacity: 1;
         transition: opacity 0.3s ease;
-        font-size: 11px; }
+        font-size: 10px; }
       .formUpload input:focus::-webkit-input-placeholder, .formUpload input:focus::-moz-placeholder, .formUpload input:focus:-moz-placeholder, .formUpload input:focus:-ms-input-placeholder {
         opacity: 0;
         transition: opacity 0.3s ease; }
