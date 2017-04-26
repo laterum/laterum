@@ -162,8 +162,7 @@
       margin-bottom: 50px
       vertical-align: middle
       color: white
-      text-align: left
-      margin-left: 20px
+      text-align: center
     h5
       display: inline-block
       font-size: 18px
@@ -351,14 +350,16 @@
       font-weight: 400
     button
       width: 45%
+      text-decoration: none
       height: 50px
       background-color: #D3D3D3
       border: 1px solid #D3D3D3
       border-radius: 50px
       margin-right: 0
+      margin-left: 20px
       padding: 10px
       margin-top: 0
-      margin-bottom: 0
+      margin-bottom: 20px
       color: #010101
       outline: none
       font-size: 20px
@@ -411,6 +412,43 @@
       font-weight: normal
     margin-right: 10px
     margin-left: 10px
+  #popup_form
+    width: 300px
+    height: 300px
+    border-radius: 5px
+    border: 3px #000 solid
+    background: #fff
+    position: fixed
+    top: 45%
+    left: 50%
+    margin-top: -150px
+    margin-left: -150px
+    display: none
+    opacity: 0
+    z-index: 5
+    padding: 20px 10px
+  #popup_close
+    width: 21px
+    height: 21px
+    position: absolute
+    top: 10px
+    right: 30px
+    cursor: pointer
+    display: block
+  #overlay
+    z-index: 3
+    position: fixed
+    background-color: #000
+    opacity: 0.8
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    cursor: pointer
+    display: none
+  .btn
+    margin-top: 20px
+    margin-left: 55px
 @media (max-width: 768px)
   .navbar-header img
     margin-top: 10px
@@ -660,7 +698,7 @@
       margin-top: 40px
       vertical-align: top
       display: inline-block
-      width: 70%
+      width: 68%
       text-align: left
       color: white
       font-size: 18px
@@ -774,7 +812,7 @@
       font-size: 20px
       font-weight: 700
     button
-      width: 45%
+      width: 100%
       height: 50px
       background-color: #D3D3D3
       border: 1px solid #D3D3D3
@@ -782,7 +820,7 @@
       margin-right: 0
       padding: 10px
       margin-top: 0
-      margin-bottom: 0
+      margin-bottom: 10px
       color: #010101
       outline: none
       font-size: 16px
@@ -792,7 +830,7 @@
       display: inline-block
 
 /*изменения*/
-.txt_for_email
+.formEmailHint
   color: white
   font-size: 12px
   font-weight: 500
