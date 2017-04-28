@@ -11,29 +11,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
-	<script type="text/javascript">
-	$(document).ready(function() { 
-		$('button#callPopupPrivacy').click( function(event){
-			event.preventDefault();
-			$('#overlay').fadeIn(400,
-			 	function(){ 
-					$('#popup_form') 
-						.css('display', 'block')
-						.animate({opacity: 1, top: '20%'}, 200);
-			});
-		});
-	
-		$('#popup_close, #overlay').click( function(){ 
-			$('#popup_form')
-				.animate({opacity: 0, top: '5%'}, 200,
-					function(){
-						$(this).css('display', 'none'); 
-						$('#overlay').fadeOut(400);
-					}
-				);
-		});
-	});
-	</script>
+	<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
 	<script type="text/javascript">
 	    $(document).ready(function () {
 	        $('#buttonUploadIfno').on('click',function () {
@@ -174,7 +152,7 @@
 						</div>
 						<div class="col-lg-6">
 							<p>Captcha*:</p>
-							<input type="text" name="formCaptcha" size="20" placeholder="Enter the Captcha">
+							<div class="g-recaptcha" data-sitekey="6LfvJB8UAAAAAGfltrm_enn4nsOTWJ3wW8-HaJ89"></div>
 						</div>
 						<div class="col-lg-6">
 							<button class="upload"><b>UPLOAD</b></button>
