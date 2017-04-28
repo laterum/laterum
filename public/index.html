@@ -5,12 +5,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="static/js/jquery-1.7.min.js"></script>
+	<script src="static/js/jquery.featureCarousel.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
+    <link rel="stylesheet" type="text/css" href="static/css/feature-carousel.css">
 	<title>Limbio PROD</title>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var carousel = $("#carousel").featureCarousel({
+                // include options like this:
+                // (use quotes only for string values, and no trailing comma after last option)
+                // option: value,
+                // option: value
+            });
+
+            $("#but_prev").click(function () {
+                carousel.prev();
+            });
+            $("#but_pause").click(function () {
+                carousel.pause();
+            });
+            $("#but_start").click(function () {
+                carousel.start();
+            });
+            $("#but_next").click(function () {
+                carousel.next();
+            });
+        });
+    </script>
 </head>
 <body>
 	<div class="home-page">
@@ -86,8 +111,10 @@
 						<div class="col-lg-6">
 							<p>Email*:</p>
 							<input type="text" name="formEmail" size="20" placeholder="Enter e-mail adress carefully so that the requested information goes to the correct e-mail.">
-							<div class="formEmailHint">If you do not receive a file from us within 24 hours, check your spam folder. <br>
-								Otherwise, write to us at ld.support@team.ff-group.org</div>
+							<div class="formEmailHint">
+								If you do not receive a file from us within 24 hours, check your spam folder. <br>
+								Otherwise, write to us at ld.support@team.ff-group.org
+							</div>
 						</div>
 						<div class="col-lg-6">
 							<p style="margin-top: 20px">Industry*:</p>
@@ -172,7 +199,7 @@
 			</div>
 		</div>
 		<div class="blockCarouselle" id="anchorCarouselle">
-			<div class="container">
+ <div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>What Limbio PROD does?</h2>
@@ -200,7 +227,51 @@
 					</div>
 				</div>
 			</div>
-		</div>
+            <div class="carousel-container">
+
+                <div id="carousel">
+                    <div class="carousel-feature">
+                        <a href="#"><img class="carousel-image" alt="Image Caption" src="static/images/sample1.jpg"></a>
+                        <div class="carousel-caption">
+                            <p>
+                                This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-feature">
+                        <a href="#"><img class="carousel-image" alt="Image Caption" src="static/images/sample2.jpg"></a>
+                        <div class="carousel-caption">
+                            <p>
+                                The background will expand up or down to fit the caption.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-feature">
+                        <a href="#"><img class="carousel-image" alt="Image Caption" src="static/images/sample3.jpg"></a>
+                        <div class="carousel-caption">
+                            <p>
+                                Images can be placed here as well.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-feature">
+                        <a href="#"><img class="carousel-image" alt="Image Caption" src="static/images/sample4.jpg"></a>
+                    </div>
+                    <div class="carousel-feature">
+                        <a href="#"><img class="carousel-image" alt="Image Caption" src="static/images/sample5.jpg"></a>
+                        <div class="carousel-caption">
+                            <p>
+                                The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carousel-left"><img src="static/images/arrow-left.png" /></div>
+                <div id="carousel-right"><img src="static/images/arrow-right.png" /></div>
+            </div>
+
+        </div>
 		<div class="blockOpportunities" id="anchorOpportunities">
 			<div class="container">
 				<div class="row">
