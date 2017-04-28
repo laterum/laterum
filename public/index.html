@@ -11,7 +11,8 @@
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
-	<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+    <script src="./static/JS/googlecaptcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 	<script type="text/javascript">
 	    $(document).ready(function () {
 	        $('#buttonUploadIfno').on('click',function () {
@@ -152,7 +153,7 @@
 						</div>
 						<div class="col-lg-6">
 							<p>Captcha*:</p>
-							<div class="g-recaptcha" data-sitekey="6LfvJB8UAAAAAGfltrm_enn4nsOTWJ3wW8-HaJ89"></div>
+                            <div id="recaptcha1"></div>
 						</div>
 						<div class="col-lg-6">
 							<button class="upload"><b>UPLOAD</b></button>
@@ -322,267 +323,267 @@
 						</div>
 						<div class="col-lg-6">
 							<p>Captcha*:</p>
-							<div class="g-recaptcha" data-sitekey="6LfvJB8UAAAAAGfltrm_enn4nsOTWJ3wW8-HaJ89"></div>
-						</div>
-						<div class="col-lg-6">
-							<button class="upload"><b>UPLOAD</b></button>
-						</div>
-						<div class="col-lg-12">
-							<div class="test"></div>
-						</div>
-					</form>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="FYI">
-							<h3>FYI</h3>
-							<h5>Our service recognizes number plates from videos shot in daylight or at night, regardless of weather conditions.  For recognition purposes, videos of up to 4 lanes are acceptable; traffic density is not important.</h5>
-							<h5>Limbio PROD recognizes number plates of vehicles from:</h5>
-							<ul>
-								<li> - Europe and the European Union </li>
-								<li> - Former CIS countries </li>
-								<li> - Israel </li>
-								<li> - Turkey </li>
-							 </ul>
-						</div>
-					</div>
-				</div>
-				<div class="row warning">
-					<div class="flex_rules">
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-1.png">
-							</div>
-							<h6>License plate<br> is more than<br> 130px in  width</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-2.png">
-							</div>
-							<h6>License plate<br> is readable</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-3.png">
-							</div>
-							<h6>Vertical angle<br> is less than 30°</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-4.png">
-							</div>
-							<h6>Horizontal angle<br> no more than 30°</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-5.png">
-							</div>
-							<h6>Tilt angle<br> less than 5°</h6>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<h2>WARNING:</h2>
-						<h5>If you have files larger than 2GB for NPR-recognition, contact us at <br>
-							ld.support@team.ff-group.org <br>
-							or call us at +42077-540-7644.</h5>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blockFeatures" id="anchorFeatures">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h2>Features:</h2>
-					</div>
-					<div class="col-lg-12">
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div>
-							<h4>Offers up to 95% recognition accuracy</h4>
-						</div>
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div>
-							<h4>Recognizes number plates from 52 countries</h4>
-						</div>
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div>
-							<h4>Able to process multi-lane videos (up to 4 lanes)</h4>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div>
-							<h4>Able to process low-quality video</h4>
-						</div>
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div><h4>Able to process and recognize vehicles at speeds up to 240 km/h</h4>
-						</div>
-						<div class="col-lg-4">
-							<div class="imgBox">
-								<img src="./static/img/like.png">
-							</div>
-							<h4>No extra settings required</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="flexGlyph2">
-						<button id="buttonAutomation"><span class="glyphicon glyphicon-menu-down"></span></button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blockAutomation" id="anchorAutomation">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h2>It's all about automation, right?  Why waste your time and effort on something a machine can do quicly and accurately!</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blockHowto" id="anchorHow">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h2>How Limbio PROD works?</h2>
-					</div>
-					<div class="blockHowtoPic col-lg-4">
-						<div class="imgBox">
-							<img src="./static/img/cloud-computing.png">
-						</div>
-						<h4>Upload your video file. (It's that simple!)</h4>
-					</div>
-					<div class="blockHowtoPic col-lg-4">
-						<div class="imgBox">
-							<img src="./static/img/24-hours.png">
-						</div>
-						<h4>Limbio PROD recogizes number plates and we deliver the results in an Excel file within 24 hours* by e-mail.</h4>
-					</div>
-					<div class="blockHowtoPic col-lg-4">
-						<div class="imgBox">
-							<img src="./static/img/analytics-50.png">
-						</div>
-						<h4>Look at the Excel table with number plates and make your decision or use the statistics in your reports, calculations or research.</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blockGreyForm">
-			<div class="container">
-				<div class="row blockPreupload">
-					<div class="col-lg-12">
-						<h3>Free service for all video files up to 2GB until June 01, 2017</h3>
-					</div>
-				</div>
-			<div class="formUpload">
-				<div class="row">
-					<form class="uplInfo">
-						<div class="col-lg-6">
-							<p>Name*:</p>
-							<input type="text" name="formName" size="20" placeholder="Your Name">
-						</div>
-						<div class="col-lg-6">
-							<p>Email*:</p>
-							<input type="text" name="formEmail" size="20" placeholder="Enter e-mail adress carefully so that the requested inforamtion goes to the correct e-mail.">
-							<div class="formEmailHint">If you do not receive a file from us within 24 hours, check your spam folder. <br>
-								Otherwise, write to us at ld.support@team.ff-group.org
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<p style="margin-top: 20px">Industry*:</p>
-							<input type="text" name="formIndustry" size="20" placeholder="Your Industry">
-						</div>
-						<div class="col-lg-6">
-							<p style="margin-top: 20px">File*:</p>
-							<input type="text" name="formFile" size="20" placeholder="Browse...">
-						</div>
-						<div class="col-lg-6">
-							<p>Captcha*:</p>
-							<div class="g-recaptcha" data-sitekey="6LfvJB8UAAAAAGfltrm_enn4nsOTWJ3wW8-HaJ89"></div>
-						</div>
-						<div class="col-lg-6">
-							<button class="upload"><b>UPLOAD</b></button>
-						</div>
-						<div class="col-lg-12">
-							<div class="test"></div>
-						</div>
-					</form>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="FYI">
-							<h3>FYI</h3>
-							<h5>Our service recognizes number plates from videos shot in daylight or at night, regardless of weather conditions.  For recognition purposes, videos of up to 4 lanes are acceptable; traffic density is not important.</h5>
-							<h5>Limbio PROD recognizes number plates of vehicles from:</h5>
-							<ul>
-								<li> - Europe and the European Union </li>
-								<li> - Former CIS countries </li>
-								<li> - Israel </li>
-								<li> - Turkey </li>
-							 </ul>
-						</div>
-					</div>
-				</div>
-				<div class="row warning">
-					<div class="flex_rules">
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-1.png">
-							</div>
-							<h6>License plate<br> is more than<br> 130px in  width</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-2.png">
-							</div>
-							<h6>License plate<br> is readable</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-3.png">
-							</div>
-							<h6>Vertical angle<br> is less than 30°</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-4.png">
-							</div>
-							<h6>Horizontal angle<br> no more than 30°</h6>
-						</div>
-						<div class="col-lg-2 col-xs-4">
-							<div class="imgBox">
-								<img src="./static/img/icon-5.png">
-							</div>
-							<h6>Tilt angle<br> less than 5°</h6>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<h2>WARNING:</h2>
-						<h5>If you have files larger than 2GB for NPR-recognition, contact us at <br>
-							ld.support@team.ff-group.org <br>
-							or call us at +42077-540-7644.</h5>
-					</div>
-				</div>
-			</div>
-				<div class="col-lg-12">
-					<div class="flexGlyph2">
-						<button id="buttonFooter"><span class="glyphicon glyphicon-menu-down"></span></button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--copy-paste-->
+                            <div id="recaptcha2"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="upload"><b>UPLOAD</b></button>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="test"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="FYI">
+                            <h3>FYI</h3>
+                            <h5>Our service recognizes number plates from videos shot in daylight or at night, regardless of weather conditions.  For recognition purposes, videos of up to 4 lanes are acceptable; traffic density is not important.</h5>
+                            <h5>Limbio PROD recognizes number plates of vehicles from:</h5>
+                            <ul>
+                                <li> - Europe and the European Union </li>
+                                <li> - Former CIS countries </li>
+                                <li> - Israel </li>
+                                <li> - Turkey </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row warning">
+                    <div class="flex_rules">
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-1.png">
+                            </div>
+                            <h6>License plate<br> is more than<br> 130px in  width</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-2.png">
+                            </div>
+                            <h6>License plate<br> is readable</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-3.png">
+                            </div>
+                            <h6>Vertical angle<br> is less than 30°</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-4.png">
+                            </div>
+                            <h6>Horizontal angle<br> no more than 30°</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-5.png">
+                            </div>
+                            <h6>Tilt angle<br> less than 5°</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <h2>WARNING:</h2>
+                        <h5>If you have files larger than 2GB for NPR-recognition, contact us at <br>
+                            ld.support@team.ff-group.org <br>
+                            or call us at +42077-540-7644.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blockFeatures" id="anchorFeatures">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Features:</h2>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div>
+                            <h4>Offers up to 95% recognition accuracy</h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div>
+                            <h4>Recognizes number plates from 52 countries</h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div>
+                            <h4>Able to process multi-lane videos (up to 4 lanes)</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div>
+                            <h4>Able to process low-quality video</h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div><h4>Able to process and recognize vehicles at speeds up to 240 km/h</h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="imgBox">
+                                <img src="./static/img/like.png">
+                            </div>
+                            <h4>No extra settings required</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="flexGlyph2">
+                        <button id="buttonAutomation"><span class="glyphicon glyphicon-menu-down"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blockAutomation" id="anchorAutomation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>It's all about automation, right?  Why waste your time and effort on something a machine can do quicly and accurately!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blockHowto" id="anchorHow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>How Limbio PROD works?</h2>
+                    </div>
+                    <div class="blockHowtoPic col-lg-4">
+                        <div class="imgBox">
+                            <img src="./static/img/cloud-computing.png">
+                        </div>
+                        <h4>Upload your video file. (It's that simple!)</h4>
+                    </div>
+                    <div class="blockHowtoPic col-lg-4">
+                        <div class="imgBox">
+                            <img src="./static/img/24-hours.png">
+                        </div>
+                        <h4>Limbio PROD recogizes number plates and we deliver the results in an Excel file within 24 hours* by e-mail.</h4>
+                    </div>
+                    <div class="blockHowtoPic col-lg-4">
+                        <div class="imgBox">
+                            <img src="./static/img/analytics-50.png">
+                        </div>
+                        <h4>Look at the Excel table with number plates and make your decision or use the statistics in your reports, calculations or research.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blockGreyForm">
+            <div class="container">
+                <div class="row blockPreupload">
+                    <div class="col-lg-12">
+                        <h3>Free service for all video files up to 2GB until June 01, 2017</h3>
+                    </div>
+                </div>
+            <div class="formUpload">
+                <div class="row">
+                    <form class="uplInfo">
+                        <div class="col-lg-6">
+                            <p>Name*:</p>
+                            <input type="text" name="formName" size="20" placeholder="Your Name">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>Email*:</p>
+                            <input type="text" name="formEmail" size="20" placeholder="Enter e-mail adress carefully so that the requested inforamtion goes to the correct e-mail.">
+                            <div class="formEmailHint">If you do not receive a file from us within 24 hours, check your spam folder. <br>
+                                Otherwise, write to us at ld.support@team.ff-group.org
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <p style="margin-top: 20px">Industry*:</p>
+                            <input type="text" name="formIndustry" size="20" placeholder="Your Industry">
+                        </div>
+                        <div class="col-lg-6">
+                            <p style="margin-top: 20px">File*:</p>
+                            <input type="text" name="formFile" size="20" placeholder="Browse...">
+                        </div>
+                        <div class="col-lg-6">
+                            <p>Captcha*:</p>
+                            <div id="recaptcha3"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="upload"><b>UPLOAD</b></button>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="test"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="FYI">
+                            <h3>FYI</h3>
+                            <h5>Our service recognizes number plates from videos shot in daylight or at night, regardless of weather conditions.  For recognition purposes, videos of up to 4 lanes are acceptable; traffic density is not important.</h5>
+                            <h5>Limbio PROD recognizes number plates of vehicles from:</h5>
+                            <ul>
+                                <li> - Europe and the European Union </li>
+                                <li> - Former CIS countries </li>
+                                <li> - Israel </li>
+                                <li> - Turkey </li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row warning">
+                    <div class="flex_rules">
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-1.png">
+                            </div>
+                            <h6>License plate<br> is more than<br> 130px in  width</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-2.png">
+                            </div>
+                            <h6>License plate<br> is readable</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-3.png">
+                            </div>
+                            <h6>Vertical angle<br> is less than 30°</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-4.png">
+                            </div>
+                            <h6>Horizontal angle<br> no more than 30°</h6>
+                        </div>
+                        <div class="col-lg-2 col-xs-4">
+                            <div class="imgBox">
+                                <img src="./static/img/icon-5.png">
+                            </div>
+                            <h6>Tilt angle<br> less than 5°</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <h2>WARNING:</h2>
+                        <h5>If you have files larger than 2GB for NPR-recognition, contact us at <br>
+                            ld.support@team.ff-group.org <br>
+                            or call us at +42077-540-7644.</h5>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg-12">
+                    <div class="flexGlyph2">
+                        <button id="buttonFooter"><span class="glyphicon glyphicon-menu-down"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--copy-paste-->
 
 		<footer id="anchorFooter">
 			<div class="container">
