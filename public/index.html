@@ -5,14 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+	<script src="js/vendor/jquery.ui.widget.js"></script>
+	<script src="js/jquery.iframe-transport.js"></script>
+	<script src="js/jquery.fileupload.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
 	<script type="text/javascript">
-	$(document).ready(function() { 
+	$(function() {
 		$('button#callPopupPrivacy').click( function(event){
 			event.preventDefault();
 			$('#overlay').fadeIn(400,
@@ -32,47 +36,68 @@
 					}
 				);
 		});
+
+		// scroll block
+		$('.scroll_button').click(function () {
+			var next_scroll = $(this).closest('.block_box').next();
+			$("html, body").animate({scrollTop: next_scroll.offset().top }, 500);
+		});
+
+		$('#buttonUpload').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorUpload').offset().top }, 500);
+		});
+		$('#buttonCustomer').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorCarouselle').offset().top }, 500);
+		});
+		$('#buttonBenefits').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorOpportunities').offset().top }, 500);
+		});
+		$('#buttonFeatures').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorFeatures').offset().top }, 500);
+		});
+		$('#buttonHow').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorHow').offset().top }, 500);
+		});
+		$('#buttonContacts').on('click',function () {
+			$("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
+		});
+
+
+		//upload
+		$('.uplInfo').fileupload({
+			type: 'POST',
+			dataType: 'json',
+//			url: '/path/to/upload/handler.json',
+			autoUpload : false,
+			maxChunkSize: 10000000, // 10 MB
+			add: function (e, data) {
+				console.log(data);
+				var ub = $(this).closest('form').find('.upload_button'); // upload button
+				if(data.files[0].size < 1024 * 1024 * 1024){
+					$('.browse').text(data.files[0].name);
+					data.context = ub.click(function () {
+						data.context = $(this).text('Uploading...').replaceAll($(this));
+						data.submit();
+					});
+				}
+			},
+			done: function (e, data) {
+				console.log('done', e, data);
+				$.each(data.result.files, function (index, file) {
+					$('<p/>').text(file.name).appendTo(document.body);
+				});
+			},
+			progressall: function (e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				console.log(progress);
+				$('.progress .progress-bar').css(
+						'width',
+						progress + '%'
+				).text(progress + '%');
+			}
+		});
+
 	});
-	</script>
-	<script type="text/javascript">
-	    $(document).ready(function () {
-	        $('#buttonUploadIfno').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorUploadIfno').offset().top }, 500);
-	        })
-	        $('#buttonCarouselle').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorCarouselle').offset().top }, 500);
-	        })
-	        $('#buttonOpportunities').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorOpportunities').offset().top }, 500);
-	        })
-	        $('#buttonForm2').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorForm2').offset().top }, 500);
-	        })
-	        $('#buttonAutomation').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorAutomation').offset().top }, 500);
-	        })
-	        $('#buttonFooter').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
-	        })
-	        $('#buttonUpload').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorUpload').offset().top }, 500);
-	        })
-	        $('#buttonCustomer').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorCarouselle').offset().top }, 500);
-	        })
-	        $('#buttonBenefits').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorOpportunities').offset().top }, 500);
-	        })
-	        $('#buttonFeatures').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorFeatures').offset().top }, 500);
-	        })
-	        $('#buttonHow').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorHow').offset().top }, 500);
-	        })
-	        $('#buttonContacts').on('click',function () {
-	            $("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
-	        })
-	    })
 	</script>
 	<script>
 	  var config = {
@@ -115,7 +140,7 @@
 				</nav>
 			</div>
 		</div>
-		<div class="blockBanner">
+		<div class="blockBanner block_box">
 			<div class="container">
 				<div class="col-lg-12">
 					<h1>Plate Recognition On-Demand (PROD) </h1>
@@ -125,12 +150,12 @@
 						This service provides automated non-periodic traffic measurment <br>
 						to help your company with business decisions.</h4>
 					<div class="flexGlyph">
-						<button id="buttonUploadIfno"><span class="glyphicon glyphicon-menu-down"></span></button>
+						<button id="buttonUploadIfno" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" id="anchorUploadIfno">
+		<div class="container block_box" id="anchorUploadIfno">
 			<div class="row blockPreupload">
 				<div class="col-lg-12">
 					<h2>Upload your file for recognition at no cost</h2>
@@ -170,17 +195,24 @@
 						</div>
 						<div class="col-lg-6">
 							<p style="margin-top: 20px">File*:</p>
-							<input type="text" name="formFile" size="20" placeholder="Browse...">
+							<label for="fileupload">
+								<div class="browse">Browse...</div>
+							</label>
+							<input id="fileupload" type="file" name="formFile" size="20" placeholder="Browse...">
 						</div>
 						<div class="col-lg-6">
 							<p>Captcha*:</p>
 							<input type="text" name="formCaptcha" size="20" placeholder="Enter the Captcha">
 						</div>
 						<div class="col-lg-6">
-							<button class="upload"><b>UPLOAD</b></button>
+							<button type="submit" class="upload_button"><b>UPLOAD</b></button>
 						</div>
 						<div class="col-lg-12">
-							<div class="test"></div>
+							<div class="progress test">
+								<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+									0%
+								</div>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -242,11 +274,11 @@
 			</div>
 			<div class="col-lg-12">
 				<div class="flexGlyph2">
-					<button id="buttonCarouselle"><span class="glyphicon glyphicon-menu-down"></span></button>
+					<button id="buttonCarouselle" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 				</div>
 			</div>
 		</div>
-		<div class="blockCarouselle" id="anchorCarouselle">
+		<div class="blockCarouselle block_box" id="anchorCarouselle">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -270,13 +302,13 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="flexGlyph">
-							<button id="buttonOpportunities"><span class="glyphicon glyphicon-menu-down"></span></button>
+							<button id="buttonOpportunities" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="blockOpportunities" id="anchorOpportunities">
+		<div class="blockOpportunities block_box" id="anchorOpportunities">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -309,12 +341,12 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="flexGlyph">
-						<button id="buttonForm2"><span class="glyphicon glyphicon-menu-down"></span></button>
+						<button id="buttonForm2" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" id="anchorForm2">
+		<div class="container block_box" id="anchorForm2">
 			<div class="row blockPreupload">
 				<div class="col-lg-12">
 					<h3>Free service for all video files up to 2GB until June 01, 2017</h3>
@@ -411,7 +443,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="blockFeatures" id="anchorFeatures">
+		<div class="blockFeatures block_box" id="anchorFeatures">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -459,12 +491,12 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="flexGlyph2">
-						<button id="buttonAutomation"><span class="glyphicon glyphicon-menu-down"></span></button>
+						<button id="buttonAutomation" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="blockAutomation" id="anchorAutomation">
+		<div class="blockAutomation block_box" id="anchorAutomation">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -473,7 +505,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="blockHowto" id="anchorHow">
+		<div class="blockHowto block_box" id="anchorHow">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -500,7 +532,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="blockGreyForm">
+		<div class="blockGreyForm block_box">
 			<div class="container">
 				<div class="row blockPreupload">
 					<div class="col-lg-12">
@@ -599,7 +631,7 @@
 			</div>
 				<div class="col-lg-12">
 					<div class="flexGlyph2">
-						<button id="buttonFooter"><span class="glyphicon glyphicon-menu-down"></span></button>
+						<button id="buttonFooter" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
 					</div>
 				</div>
 			</div>

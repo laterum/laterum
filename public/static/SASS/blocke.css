@@ -42,7 +42,7 @@
       font-weight: 500;
       margin-top: 114px; }
 
-  .test {
+  .progress {
     margin-top: 70px;
     margin-bottom: 70px;
     background: white;
@@ -221,6 +221,19 @@
       height: 50px;
       background-color: yellow;
       border-radius: 25px; }
+    .formUpload #fileupload {
+      display: none; }
+    .formUpload label {
+      width: 100%; }
+      .formUpload label .browse {
+        background: white;
+        color: #757575;
+        width: 100%;
+        height: 50px;
+        font-size: 10px;
+        font-weight: bold;
+        padding-left: 30px;
+        padding-top: 18px; }
 
   .blockCarouselle {
     vertical-align: middle;
@@ -485,7 +498,7 @@
       color: white;
       text-align: center; }
 
-  .test {
+  .progress {
     margin-top: 50px;
     margin-bottom: 50px;
     background: white;
