@@ -9,8 +9,14 @@
     font-family: "HelveticaNeueCyr-Roman"
     src: url('../fonts/font-family/HelveticaNeueCyr-Roman.otf')
 
+*
+    margin: 0
+    padding: 0
+    position: relative
+
 [id^='button']
     outline: none
+
 
 @media (min-width: 768px)
     hr
@@ -21,27 +27,7 @@
         margin: 0
         padding: 0
         background: 0
-    .blockBanner
-        vertical-align: middle
-        background-image: url(../img/bg.png)
-        background-size: cover
-        margin-bottom: 50px
-        color: white
-        text-align: center
-        h1
-            font-weight: 700
-            margin-top: 235px
-            font-size: 72px
-        h2
-            font-size: 46px
-            font-weight: 500
-            margin-top: 50px
-        h4
-            font-size: 24px
-            font-weight: 500
-            margin-top: 114px
-
-    .progress
+    .test
         margin-top: 70px
         margin-bottom: 70px
         background: white
@@ -49,17 +35,7 @@
         border-radius: 50px
     .imgBox
         display: inline-block
-    .col-lg-6.pic-txt
-        .imgBox
-            margin-bottom: 30px
-        h4
-            margin-bottom: 20px
-            margin-top: 20px
-            padding-left: 15px
-            text-align: justify
-            display: inline-block
-            width: 80%
-    .blockPreupload
+    .row.blockPreupload
         h2
             padding-left: 25%
             padding-right: 25%
@@ -88,6 +64,16 @@
             vertical-align: middle
             color: #333
             text-align: left
+    .col-lg-6.pic-txt
+        .imgBox
+            margin-bottom: 30px
+        h4
+            margin-bottom: 20px
+            margin-top: 20px
+            padding-left: 15px
+            text-align: justify
+            display: inline-block
+            width: 80%
     .flexGlyph
         display: flex
         flex-direction: row
@@ -120,7 +106,7 @@
         font-size: 25px
         color: white
     .FYI
-        margin-bottom: 70px
+        margin-bottom: 50px
         padding-left: 30px
         border: 2px solid white
         vertical-align: middle
@@ -154,6 +140,17 @@
         flex-direction: row
         justify-content: space-between
         align-items: flex-start
+    .better
+        margin-bottom: 40px
+        vertical-align: middle
+        color: white
+        text-align: left
+        h3
+            margin-left: 0
+            font-size: 30px
+            font-weight: 700
+            margin-top: 20px
+            margin-bottom: 20px
     .row.warning
         h6
             font-size: 14px
@@ -214,19 +211,6 @@
             height: 50px
             background-color: yellow
             border-radius: 25px
-        #fileupload
-            display: none
-        label
-            width: 100%
-            .browse
-                background: white
-                color: rgb(117, 117, 117)
-                width: 100%
-                height: 50px
-                font-size: 10px
-                font-weight: bold
-                padding-left: 30px
-                padding-top: 18px
     .blockCarouselle
         vertical-align: middle
         background: #3498db
@@ -457,37 +441,12 @@
         margin: 0
         padding: 0
         background: 0
-    .blockBanner
-        vertical-align: middle
-        background-image: url(../img/bg.png)
-        background-size: cover
-        h1
-            font-weight: 700
-            margin-top: 60px
-            font-size: 48px
-            color: white
-            text-align: center
-        h4
-            font-size: 18px
-            font-weight: 500
-            margin-top: 50px
-            vertical-align: middle
-            color: white
-            text-align: center
-    .progress
+    .test
         margin-top: 50px
         margin-bottom: 50px
         background: white
         height: 40px
         border-radius: 50px
-    .blockBanner h2
-        font-size: 30px
-        font-weight: 700
-        margin-top: 50px
-        margin-bottom: 50px
-        vertical-align: middle
-        color: white
-        text-align: center
     .imgBox
         display: inline-block
     .col-lg-6.pic-txt
@@ -526,6 +485,17 @@
             vertical-align: middle
             color: #333
             text-align: left
+    .better
+        margin-bottom: 30px
+        vertical-align: middle
+        color: white
+        text-align: left
+        h3
+            margin-left: 0
+            font-size: 20px
+            font-weight: 700
+            margin-top: 20px
+            margin-bottom: 20px
     .flexGlyph
         display: flex
         flex-direction: row
@@ -537,7 +507,7 @@
             border: 3px solid white
             border-radius: 100px
             margin: 0
-            padding: 20px
+            padding: 18px 20px 18px 20px
             background: 0
     .flexGlyph2
         display: flex
@@ -550,7 +520,7 @@
             border: 3px solid #3498db
             border-radius: 100px
             margin: 0
-            padding: 20px
+            padding: 18px 20px 18px 20px
             background: 0
         span
             color: #3498db
@@ -808,8 +778,34 @@
         img
             margin-right: 30px
             display: inline-block
+    #vbg
+        display: none
+    .banner
+        padding: 5% 10%
+        background: url("../img/bg.png")
+        vertical-align: middle
+        background-size: cover
+        h1
+            font-weight: 700
+            margin-top: 60px
+            font-size: 48px
+            color: white
+            text-align: center
+        h4
+            font-size: 18px
+            font-weight: 500
+            margin-top: 50px
+            vertical-align: middle
+            color: white
+            text-align: center
+        h2
+            font-size: 30px
+            font-weight: 700
+            margin-top: 50px
+            margin-bottom: 50px
+            color: white
+            text-align: center
 
-/*изменения*/
 .formEmailHint
     color: white
     font-size: 12px
@@ -817,3 +813,193 @@
     padding: inherit
     margin-top: 5px
 
+
+@media (min-width: 1200px) and (max-width: 1367px)
+    .banner
+        margin: 0 auto
+        color: white
+        padding-top: 5%
+        padding-bottom: 5%
+        text-align: center
+        background-size: 100% auto
+        h1
+            font-weight: 700
+            font-size: 52px
+        h2
+            font-size: 36px
+            font-weight: 500
+            margin-top: 50px
+        h4
+            font-size: 21px
+            font-weight: 500
+            margin-top: 50px
+        #vbg
+            z-index: -1
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+
+@media (min-width: 1368px) and (max-width: 1665px)
+    .banner
+        margin: 0 auto
+        color: white
+        padding: 5% 20%
+        text-align: center
+        background-size: 100% auto
+        h1
+            font-weight: 700
+            font-size: 66px
+        h2
+            font-size: 40px
+            font-weight: 500
+            margin-top: 50px
+        h4
+            font-size: 24px
+            font-weight: 500
+            margin-top: 10%
+        #vbg
+            z-index: -1
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+    .flexGlyph
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        margin-bottom: 72px
+        margin-top: 9%
+        button
+            border: 3px solid white
+            border-radius: 60px
+            margin: 0
+            padding: 18px 20px 18px 20px
+            background: 0
+
+@media (min-width: 1666px)
+    .banner
+        margin: 0 auto
+        color: white
+        text-align: center
+        background-size: 100% auto
+        padding-left: 20%
+        padding-right: 20%
+        padding-top: 10%
+        padding-bottom: 5%
+        h1
+            font-weight: 700
+            font-size: 72px
+        h2
+            font-size: 46px
+            font-weight: 500
+            margin-top: 50px
+        h4
+            font-size: 24px
+            font-weight: 500
+            margin-top: 100px
+        #vbg
+            z-index: -1
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+    #vbg
+        height: 100%
+
+@media (min-width: 992px) and (max-width: 1200px)
+    .banner
+        margin: 0 auto
+        color: white
+        padding-top: 5%
+        padding-bottom: 5%
+        text-align: center
+        background-size: 100% auto
+        h1
+            font-weight: 700
+            font-size: 52px
+        h2
+            font-size: 36px
+            font-weight: 500
+            margin-top: 50px
+        h4
+            font-size: 21px
+            font-weight: 500
+            margin-top: 50px
+        #vbg
+            z-index: -1
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+    .flexGlyph
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        margin-bottom: 72px
+        margin-top: 6%
+        button
+            border: 3px solid white
+            border-radius: 60px
+            margin: 0
+            padding: 18px 20px 18px 20px
+            background: 0
+
+@media (min-width: 769px) and (max-width: 992px)
+    .banner
+        margin: 0 auto
+        color: white
+        padding-top: 2%
+        padding-bottom: 5%
+        padding-left: 5%
+        padding-right: 5%
+        text-align: center
+        background-size: 100% auto
+        h1
+            font-weight: 700
+            font-size: 42px
+        h2
+            font-size: 30px
+            font-weight: 500
+            margin-top: 4%
+        h4
+            font-size: 18px
+            font-weight: 500
+            margin-top: 4%
+        #vbg
+            z-index: -1
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+    .flexGlyph
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        margin-bottom: 72px
+        margin-top: 4%
+        button
+            border: 3px solid white
+            border-radius: 60px
+            margin: 0
+            padding: 18px 20px 18px 20px
+            background: 0
+    .row.blockPreupload
+        h2
+            padding-left: 25%
+            padding-right: 25%
+            font-size: 42px
+            font-weight: 700
+            margin-top: 70px
+            margin-bottom: 100px
+            vertical-align: middle
+            color: black
+            text-align: center

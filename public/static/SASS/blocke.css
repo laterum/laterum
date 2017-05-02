@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "HelveticaNeueCyr";
   src: url("../fonts/font-family/HelveticaNeue-Regular/HelveticaNeue.eot");
@@ -8,6 +7,11 @@
 @font-face {
   font-family: "HelveticaNeueCyr-Roman";
   src: url("../fonts/font-family/HelveticaNeueCyr-Roman.otf"); }
+* {
+  margin: 0;
+  padding: 0;
+  position: relative; }
+
 [id^='button'] {
   outline: none; }
 
@@ -22,27 +26,7 @@
     padding: 0;
     background: 0; }
 
-  .blockBanner {
-    vertical-align: middle;
-    background-image: url(../img/bg.png);
-    background-size: cover;
-    margin-bottom: 50px;
-    color: white;
-    text-align: center; }
-    .blockBanner h1 {
-      font-weight: 700;
-      margin-top: 235px;
-      font-size: 72px; }
-    .blockBanner h2 {
-      font-size: 46px;
-      font-weight: 500;
-      margin-top: 50px; }
-    .blockBanner h4 {
-      font-size: 24px;
-      font-weight: 500;
-      margin-top: 114px; }
-
-  .progress {
+  .test {
     margin-top: 70px;
     margin-bottom: 70px;
     background: white;
@@ -51,6 +35,35 @@
 
   .imgBox {
     display: inline-block; }
+
+  .row.blockPreupload h2 {
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: 46px;
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    vertical-align: middle;
+    color: black;
+    text-align: center; }
+  .row.blockPreupload h3 {
+    padding-left: 17%;
+    padding-right: 17%;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color: black;
+    text-align: center; }
+  .row.blockPreupload h4 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+    color: #333;
+    text-align: left; }
 
   .col-lg-6.pic-txt .imgBox {
     margin-bottom: 30px; }
@@ -61,35 +74,6 @@
     text-align: justify;
     display: inline-block;
     width: 80%; }
-
-  .blockPreupload h2 {
-    padding-left: 25%;
-    padding-right: 25%;
-    font-size: 46px;
-    font-weight: 700;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    vertical-align: middle;
-    color: black;
-    text-align: center; }
-  .blockPreupload h3 {
-    padding-left: 17%;
-    padding-right: 17%;
-    font-size: 36px;
-    font-weight: 700;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    color: black;
-    text-align: center; }
-  .blockPreupload h4 {
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 0;
-    margin-bottom: 0;
-    vertical-align: middle;
-    color: #333;
-    text-align: left; }
 
   .flexGlyph {
     display: flex;
@@ -126,7 +110,7 @@
     color: white; }
 
   .FYI {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     padding-left: 30px;
     border: 2px solid white;
     vertical-align: middle;
@@ -161,6 +145,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start; }
+
+  .better {
+    margin-bottom: 40px;
+    vertical-align: middle;
+    color: white;
+    text-align: left; }
+    .better h3 {
+      margin-left: 0;
+      font-size: 30px;
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 20px; }
 
   .row.warning h6 {
     font-size: 14px;
@@ -221,19 +217,6 @@
       height: 50px;
       background-color: yellow;
       border-radius: 25px; }
-    .formUpload #fileupload {
-      display: none; }
-    .formUpload label {
-      width: 100%; }
-      .formUpload label .browse {
-        background: white;
-        color: #757575;
-        width: 100%;
-        height: 50px;
-        font-size: 10px;
-        font-weight: bold;
-        padding-left: 30px;
-        padding-top: 18px; }
 
   .blockCarouselle {
     vertical-align: middle;
@@ -480,39 +463,12 @@
     padding: 0;
     background: 0; }
 
-  .blockBanner {
-    vertical-align: middle;
-    background-image: url(../img/bg.png);
-    background-size: cover; }
-    .blockBanner h1 {
-      font-weight: 700;
-      margin-top: 60px;
-      font-size: 48px;
-      color: white;
-      text-align: center; }
-    .blockBanner h4 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-top: 50px;
-      vertical-align: middle;
-      color: white;
-      text-align: center; }
-
-  .progress {
+  .test {
     margin-top: 50px;
     margin-bottom: 50px;
     background: white;
     height: 40px;
     border-radius: 50px; }
-
-  .blockBanner h2 {
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    vertical-align: middle;
-    color: white;
-    text-align: center; }
 
   .imgBox {
     display: inline-block; }
@@ -554,6 +510,18 @@
     color: #333;
     text-align: left; }
 
+  .better {
+    margin-bottom: 30px;
+    vertical-align: middle;
+    color: white;
+    text-align: left; }
+    .better h3 {
+      margin-left: 0;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+
   .flexGlyph {
     display: flex;
     flex-direction: row;
@@ -565,7 +533,7 @@
       border: 3px solid white;
       border-radius: 100px;
       margin: 0;
-      padding: 20px;
+      padding: 18px 20px 18px 20px;
       background: 0; }
 
   .flexGlyph2 {
@@ -579,7 +547,7 @@
       border: 3px solid #3498db;
       border-radius: 100px;
       margin: 0;
-      padding: 20px;
+      padding: 18px 20px 18px 20px;
       background: 0; }
     .flexGlyph2 span {
       color: #3498db; }
@@ -846,13 +814,231 @@
       font-weight: 700; }
     footer img {
       margin-right: 30px;
-      display: inline-block; } }
-/*изменения */
+      display: inline-block; }
+
+  #vbg {
+    display: none; }
+
+  .banner {
+    padding: 5% 10%;
+    background: url("../img/bg.png");
+    vertical-align: middle;
+    background-size: cover; }
+    .banner h1 {
+      font-weight: 700;
+      margin-top: 60px;
+      font-size: 48px;
+      color: white;
+      text-align: center; }
+    .banner h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 50px;
+      vertical-align: middle;
+      color: white;
+      text-align: center; }
+    .banner h2 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      color: white;
+      text-align: center; } }
 .formEmailHint {
   color: white;
   font-size: 12px;
   font-weight: 500;
   padding: inherit;
   margin-top: 5px; }
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .banner {
+    margin: 0 auto;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    background-size: 100% auto; }
+    .banner h1 {
+      font-weight: 700;
+      font-size: 52px; }
+    .banner h2 {
+      font-size: 36px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner h4 {
+      font-size: 21px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner #vbg {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; } }
+@media (min-width: 1368px) and (max-width: 1665px) {
+  .banner {
+    margin: 0 auto;
+    color: white;
+    padding: 5% 20%;
+    text-align: center;
+    background-size: 100% auto; }
+    .banner h1 {
+      font-weight: 700;
+      font-size: 66px; }
+    .banner h2 {
+      font-size: 40px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 10%; }
+    .banner #vbg {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; }
+
+  .flexGlyph {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 72px;
+    margin-top: 9%; }
+    .flexGlyph button {
+      border: 3px solid white;
+      border-radius: 60px;
+      margin: 0;
+      padding: 18px 20px 18px 20px;
+      background: 0; } }
+@media (min-width: 1666px) {
+  .banner {
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    background-size: 100% auto;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 5%; }
+    .banner h1 {
+      font-weight: 700;
+      font-size: 72px; }
+    .banner h2 {
+      font-size: 46px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 100px; }
+    .banner #vbg {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; }
+
+  #vbg {
+    height: 100%; } }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .banner {
+    margin: 0 auto;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    background-size: 100% auto; }
+    .banner h1 {
+      font-weight: 700;
+      font-size: 52px; }
+    .banner h2 {
+      font-size: 36px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner h4 {
+      font-size: 21px;
+      font-weight: 500;
+      margin-top: 50px; }
+    .banner #vbg {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; }
+
+  .flexGlyph {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 72px;
+    margin-top: 6%; }
+    .flexGlyph button {
+      border: 3px solid white;
+      border-radius: 60px;
+      margin: 0;
+      padding: 18px 20px 18px 20px;
+      background: 0; } }
+@media (min-width: 769px) and (max-width: 992px) {
+  .banner {
+    margin: 0 auto;
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    background-size: 100% auto; }
+    .banner h1 {
+      font-weight: 700;
+      font-size: 42px; }
+    .banner h2 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-top: 4%; }
+    .banner h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 4%; }
+    .banner #vbg {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; }
+
+  .flexGlyph {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 72px;
+    margin-top: 4%; }
+    .flexGlyph button {
+      border: 3px solid white;
+      border-radius: 60px;
+      margin: 0;
+      padding: 18px 20px 18px 20px;
+      background: 0; }
+
+  .row.blockPreupload h2 {
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    vertical-align: middle;
+    color: black;
+    text-align: center; } }
 
 /*# sourceMappingURL=blocke.css.map */
