@@ -813,17 +813,21 @@
     padding: inherit
     margin-top: 5px
 
+.slider
+    height: 100%
+    text-align: -webkit-center
+    overflow-x: hidden
+
 .carousel-container
     position: relative
-    width: 960px
 
 #carousel
-    height: 280px
-    width: 960px
-    background-color: #CCC
+    height: 600px
+    max-width: 1000px
     position: relative
     margin-bottom: 0.5em
     font-size: 12px
+    font-family: Arial
 
 .carousel-image
     border: 0
@@ -831,20 +835,18 @@
 
 .carousel-feature
     position: absolute
-    top: -1000px
-    left: -1000px
-    border: 2px solid #5d5d5d
+    /*top:-1000px;
+    /*left:-1000px;
     cursor: pointer
     .carousel-caption
         position: absolute
         bottom: 0
         width: 100%
-        background-color: #000
         p
             margin: 0
-            padding: 5px
+            padding: 15px
             font-weight: bold
-            font-size: 12px
+            font-size: 16px
             color: white
 
 .tracker-summation-container
@@ -859,34 +861,23 @@
 .tracker-individual-container
     position: absolute
     color: white
-    right: 48px
-    top: 210px
+    right: 43%
+    top: 95%
     padding: 0
     margin: 0
     li
         list-style: none
     .tracker-individual-blip
         margin: 0 3px
-        padding: 0 3px
+        padding: 3px 6px
         color: white
+        border-radius: 50%
         text-align: center
-        background-color: #DDD
+        background-color: white
     .tracker-individual-blip-selected
-        color: white
+        color: black
         font-weight: bold
-        background-color: #000
-
-#carousel-left
-    position: absolute
-    bottom: 33px
-    left: 220px
-    cursor: pointer
-
-#carousel-right
-    position: absolute
-    bottom: 33px
-    right: 220px
-    cursor: pointer
+        background-color: black
 
 @media (min-width: 1666px)
     .banner
