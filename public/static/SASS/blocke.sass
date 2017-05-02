@@ -813,26 +813,102 @@
     padding: inherit
     margin-top: 5px
 
+.carousel-container
+    position: relative
+    width: 960px
 
-@media (min-width: 1200px) and (max-width: 1367px)
+#carousel
+    height: 280px
+    width: 960px
+    background-color: #CCC
+    position: relative
+    margin-bottom: 0.5em
+    font-size: 12px
+
+.carousel-image
+    border: 0
+    display: block
+
+.carousel-feature
+    position: absolute
+    top: -1000px
+    left: -1000px
+    border: 2px solid #5d5d5d
+    cursor: pointer
+    .carousel-caption
+        position: absolute
+        bottom: 0
+        width: 100%
+        background-color: #000
+        p
+            margin: 0
+            padding: 5px
+            font-weight: bold
+            font-size: 12px
+            color: white
+
+.tracker-summation-container
+    position: absolute
+    color: white
+    right: 48px
+    top: 230px
+    padding: 3px
+    margin: 3px
+    background-color: #000
+
+.tracker-individual-container
+    position: absolute
+    color: white
+    right: 48px
+    top: 210px
+    padding: 0
+    margin: 0
+    li
+        list-style: none
+    .tracker-individual-blip
+        margin: 0 3px
+        padding: 0 3px
+        color: white
+        text-align: center
+        background-color: #DDD
+    .tracker-individual-blip-selected
+        color: white
+        font-weight: bold
+        background-color: #000
+
+#carousel-left
+    position: absolute
+    bottom: 33px
+    left: 220px
+    cursor: pointer
+
+#carousel-right
+    position: absolute
+    bottom: 33px
+    right: 220px
+    cursor: pointer
+
+@media (min-width: 1666px)
     .banner
         margin: 0 auto
         color: white
-        padding-top: 5%
-        padding-bottom: 5%
         text-align: center
         background-size: 100% auto
+        padding-left: 20%
+        padding-right: 20%
+        padding-top: 10%
+        padding-bottom: 5%
         h1
             font-weight: 700
-            font-size: 52px
+            font-size: 72px
         h2
-            font-size: 36px
+            font-size: 46px
             font-weight: 500
             margin-top: 50px
         h4
-            font-size: 21px
+            font-size: 24px
             font-weight: 500
-            margin-top: 50px
+            margin-top: 100px
         #vbg
             z-index: -1
             position: absolute
@@ -840,6 +916,8 @@
             top: 0
             right: 0
             bottom: 0
+    #vbg
+        height: 100%
 
 @media (min-width: 1368px) and (max-width: 1665px)
     .banner
@@ -880,27 +958,25 @@
             padding: 18px 20px 18px 20px
             background: 0
 
-@media (min-width: 1666px)
+@media (min-width: 1200px) and (max-width: 1367px)
     .banner
         margin: 0 auto
         color: white
+        padding-top: 5%
+        padding-bottom: 5%
         text-align: center
         background-size: 100% auto
-        padding-left: 20%
-        padding-right: 20%
-        padding-top: 10%
-        padding-bottom: 5%
         h1
             font-weight: 700
-            font-size: 72px
+            font-size: 52px
         h2
-            font-size: 46px
+            font-size: 36px
             font-weight: 500
             margin-top: 50px
         h4
-            font-size: 24px
+            font-size: 21px
             font-weight: 500
-            margin-top: 100px
+            margin-top: 50px
         #vbg
             z-index: -1
             position: absolute
@@ -908,8 +984,6 @@
             top: 0
             right: 0
             bottom: 0
-    #vbg
-        height: 100%
 
 @media (min-width: 992px) and (max-width: 1200px)
     .banner

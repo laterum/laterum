@@ -11,7 +11,8 @@
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
-    <script src="./static/JS/googlecaptcha.js"></script>
+	<script src="./static/JS/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./static/JS/googlecaptcha.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 	<script type="text/javascript">
 	    $(document).ready(function () {
@@ -52,6 +53,29 @@
 	            $("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
 	        })
 	    })
+	</script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var carousel = $("#carousel").featureCarousel({
+                // include options like this:
+                // (use quotes only for string values, and no trailing comma after last option)
+                // option: value,
+                // option: value
+            });
+
+            $("#but_prev").click(function () {
+                carousel.prev();
+            });
+            $("#but_pause").click(function () {
+                carousel.pause();
+            });
+            $("#but_start").click(function () {
+                carousel.start();
+            });
+            $("#but_next").click(function () {
+                carousel.next();
+            });
+        });
 	</script>
 	<script>
 	  var config = {
@@ -249,7 +273,49 @@
 					</div>
 					<div class="col-lg-12">
 						<h2>What Limbio PROD's offer is for you?</h2>
-						<h4>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.</h4>
+						<div class="carousel-container">
+
+							<div id="carousel">
+								<div class="carousel-feature">
+									<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample1.jpg"></a>
+									<div class="carousel-caption">
+										<p>
+											This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+										</p>
+									</div>
+								</div>
+								<div class="carousel-feature">
+									<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample2.jpg"></a>
+									<div class="carousel-caption">
+										<p>
+											The background will expand up or down to fit the caption.
+										</p>
+									</div>
+								</div>
+								<div class="carousel-feature">
+									<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample3.jpg"></a>
+									<div class="carousel-caption">
+										<p>
+											Images can be placed here as well.
+										</p>
+									</div>
+								</div>
+								<div class="carousel-feature">
+									<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample4.jpg"></a>
+								</div>
+								<div class="carousel-feature">
+									<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample5.jpg"></a>
+									<div class="carousel-caption">
+										<p>
+											The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div id="carousel-left"><img src="./static/images/arrow-left.png" /></div>
+							<div id="carousel-right"><img src="./static/images/arrow-right.png" /></div>
+						</div>
 					</div>
 					<div class="col-lg-12">
 						<div class="flexGlyph">
@@ -259,6 +325,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="blockOpportunities" id="anchorOpportunities">
 			<div class="container">
 				<div class="row">
