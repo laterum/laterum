@@ -89,6 +89,20 @@
       padding: 18px 20px 18px 20px;
       background: 0; }
 
+  .flexGlyph1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding-bottom: 100px; }
+    .flexGlyph1 button {
+      border: 3px solid white;
+      border-radius: 60px;
+      margin: 0;
+      padding: 18px 20px 18px 20px;
+      background: 0; }
+
   .flexGlyph2 {
     display: flex;
     flex-direction: row;
@@ -431,6 +445,9 @@
       font-size: 19px;
       font-weight: normal; } }
 @media (max-width: 768px) {
+  .carousel-container {
+    display: none; }
+
   .navbar-header img {
     margin-top: 10px; }
 
@@ -859,7 +876,7 @@
   position: relative; }
 
 #carousel {
-  height: 630px;
+  height: 900px;
   max-width: 1000px;
   position: relative;
   margin-bottom: 0.5em;
@@ -877,7 +894,8 @@
   .carousel-feature .carousel-caption {
     position: absolute;
     bottom: 0;
-    width: 100%; }
+    width: 100%;
+    left: 0 !important; }
     .carousel-feature .carousel-caption p {
       margin: 0;
       padding: 15px;

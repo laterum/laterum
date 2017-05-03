@@ -608,7 +608,7 @@
 
     // Add event listener to all clicks within the features container
     // This is done to disable any links that aren't within the center feature
-    $("a", pluginData.containerIDTag).on("click", function (event) {
+    $(pluginData.containerIDTag).on("click", "a", function (event) {
       // travel up to the container
       var $parents = $(this).parentsUntil(pluginData.containerIDTag);
       // now check each of the feature divs within it
@@ -636,8 +636,7 @@
     });
 
     // Did someone click one of the individual trackers?
-    $(".tracker-individual-blip",  pluginData.containerIDTag).on("click",function () {
-      alert(21);
+    $(pluginData.containerIDTag).on("click",".tracker-individual-blip",function () {
       // grab the position # that was clicked
       var goTo = $(this).attr("id").substring(8);
       // find out where that feature # actually is in the carousel right now
