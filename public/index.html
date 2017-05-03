@@ -64,8 +64,64 @@
                 largeFeatureWidth: 1170,
                 largeFeatureHeight: 680,
                 sidePadding: -550,
-                smallFeatureHeight: 415,
-                smallFeatureWidth: 650
+                smallFeatureWidth: 650,
+                smallFeatureHeight: 415
+            });
+
+            function reinit_carousel() {
+                var new_large_width, new_large_height, new_small_width, new_small_height, new_side_padding;
+
+                var x = Number($(window).width());
+                if (x < 992){
+                    new_large_width = 600;
+                    new_large_height = 350;
+                    new_small_width = 320;
+                    new_small_height = 205;
+                    new_side_padding = -50;
+                }
+                else if (x >= 992 && x < 1200) {
+                    new_large_width = 800;
+                    new_large_height = 465;
+                    new_small_width = 430;
+                    new_small_height = 275;
+                    new_side_padding = -200;
+                }
+                else if (x >= 1200 && x < 1600) {
+                    new_large_width = 1000;
+                    new_large_height = 580;
+                    new_small_width = 540;
+                    new_small_height = 345;
+                    new_side_padding = -375;
+                }
+                else {
+                    new_large_width = 1170;
+                    new_large_height = 680;
+                    new_small_width = 650;
+                    new_small_height = 415;
+                    new_side_padding = -550;
+                }
+                carousel =  $("#carousel").featureCarousel({
+                    carouselSpeed: 300,
+                    trackerSummation: false,
+                    captionBelow: true,
+                    autoPlay: false,
+                    largeFeatureWidth: new_large_width,
+                    largeFeatureHeight: new_large_height,
+                    sidePadding: new_side_padding,
+                    smallFeatureWidth: new_small_width,
+                    smallFeatureHeight: new_small_height
+
+                });
+                carousel.initialize();
+            }
+            // listen resize window and resize chart
+            var resizeTimer;
+            $(window).on('resize', function (e) {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+//                    console.log($(window).width(), $(document).width());
+                    reinit_carousel();
+                }, 250);
             });
         });
 	</script>
