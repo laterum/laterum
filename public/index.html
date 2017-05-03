@@ -11,7 +11,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
-	<script src="./static/JS/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="static/JS/jquery.featureCarousel_old.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./static/JS/googlecaptcha.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 	<script type="text/javascript">
@@ -84,32 +84,28 @@
 </head>
 <body>
 	<div class="home-page">
-		<div class="container">
-			<div class="col-lg-12">
-				<nav class="navbar">
-					<div class="container">
-						<div class="navbar-header">
-							<a href="#"><img src="./static/img/logo.png" alt=""></a>
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuTop" aria-expanded="false" aria-controls="navbar">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>	                 
-							</button>
-							<div id="menuTop" class="collapse navbar-collapse" >
-								<ul class="nav navbar-nav">
-									<li class="flex_block_1"><button id="buttonUpload">Upload</button></li>
-									<li class="flex_block"><button id="buttonCustomer">Customer</button></li>
-									<li class="flex_block"><button id="buttonBenefits">Benefits</button></li>
-									<li class="flex_block"><button id="buttonFeatures">Features</button></li>
-									<li class="flex_block"><button id="buttonHow">How it works</button></li>
-									<li class="flex_block"><button id="buttonContacts">Contacts</button></li>
-								</ul>
-							</div>
-						</div>
+		<nav class="navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#"><img src="./static/img/logo.png" alt=""></a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuTop" aria-expanded="false" aria-controls="navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div id="menuTop" class="collapse navbar-collapse" >
+						<ul class="nav navbar-nav">
+							<li class="flex_block_1"><button id="buttonUpload">Upload</button></li>
+							<li class="flex_block"><button id="buttonCustomer">Customer</button></li>
+							<li class="flex_block"><button id="buttonBenefits">Benefits</button></li>
+							<li class="flex_block"><button id="buttonFeatures">Features</button></li>
+							<li class="flex_block"><button id="buttonHow">How it works</button></li>
+							<li class="flex_block"><button id="buttonContacts">Contacts</button></li>
+						</ul>
 					</div>
-				</nav>
+				</div>
 			</div>
-		</div>
+		</nav>
         <div class="banner">
             <div id="vbg">
                 <video id="videoBG" width="100%" height="auto" preload="auto" autoplay="autoplay" loop="loop" poster="./static/img/bg.png">
@@ -266,55 +262,49 @@
 					<div class="col-lg-12">
 						<h2>What Limbio PROD's offer is for you?</h2>
 					</div>
-
-					<div class="col-lg-12">
-						<div class="flexGlyph">
-							<button id="buttonOpportunities"><span class="glyphicon glyphicon-menu-down"></span></button>
-						</div>
-					</div>
 				</div>
 			</div>
-		</div>
-		<div class="slider">
 			<div class="carousel-container">
-
 				<div id="carousel">
 					<div class="carousel-feature">
 						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample1.jpg"></a>
 						<div class="carousel-caption">
-							<p>
-								This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+							<p>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.
 							</p>
 						</div>
 					</div>
 					<div class="carousel-feature">
 						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample2.jpg"></a>
 						<div class="carousel-caption">
-							<p>
-								The background will expand up or down to fit the caption.
+							<p>For Car Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD can identify where your clients are from. You will see a tally and the country of origin of each plate – all in one Excel table with no need to input data yourself.
 							</p>
 						</div>
 					</div>
 					<div class="carousel-feature">
 						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample3.jpg"></a>
 						<div class="carousel-caption">
-							<p>
-								Images can be placed here as well.
+							<p>For Logistics Centers and Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD offers the data you need to assess daily, weekly or monthly terminal loads.
 							</p>
 						</div>
 					</div>
 					<div class="carousel-feature">
 						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample4.jpg"></a>
+						<div class="carousel-caption">
+							<p>For Investors, Limbio PROD helps you judge investment appeal based on traffic density and site location.
+							</p>
+						</div>
 					</div>
 					<div class="carousel-feature">
 						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/sample5.jpg"></a>
 						<div class="carousel-caption">
-							<p>
-								The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+							<p>For Police, Limbio PROD helps you confirm presence or absence of vehicles at a specific time and location for reports and investigations.
 							</p>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="flexGlyph">
+				<button id="buttonOpportunities"><span class="glyphicon glyphicon-menu-down"></span></button>
 			</div>
 		</div>
 		<div class="blockOpportunities" id="anchorOpportunities">

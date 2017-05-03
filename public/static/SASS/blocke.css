@@ -851,16 +851,15 @@
   padding: inherit;
   margin-top: 5px; }
 
-.slider {
+.carousel-container {
   height: 100%;
   text-align: -webkit-center;
-  overflow-x: hidden; }
-
-.carousel-container {
+  overflow-x: hidden;
+  background-color: #3498db;
   position: relative; }
 
 #carousel {
-  height: 600px;
+  height: 630px;
   max-width: 1000px;
   position: relative;
   margin-bottom: 0.5em;
@@ -905,16 +904,17 @@
   .tracker-individual-container li {
     list-style: none; }
   .tracker-individual-container .tracker-individual-blip {
+    border: 2px solid white;
     margin: 0 3px;
-    padding: 3px 6px;
-    color: white;
-    border-radius: 50%;
+    padding: 1px 6px;
+    color: transparent;
+    border-radius: 100px;
     text-align: center;
-    background-color: white; }
+    background-color: transparent; }
   .tracker-individual-container .tracker-individual-blip-selected {
-    color: black;
+    color: white;
     font-weight: bold;
-    background-color: black; }
+    background-color: white; }
 
 @media (min-width: 1666px) {
   .banner {
