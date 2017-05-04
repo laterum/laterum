@@ -10,8 +10,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
-	<title>Limbio PROD</title>
-	<script src="static/JS/jquery.featureCarousel.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="static/SASS/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="static/SASS/slick-theme.css">
+    <script type="text/javascript" src="static/JS/slick.js"></script>
+    <title>Limbio PROD</title>
+
 	<script src="./static/JS/googlecaptcha.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 	<script type="text/javascript">
@@ -56,72 +59,57 @@
 	</script>
 	<script type="text/javascript">
         $(document).ready(function(){
-            var carousel =  $("#carousel").featureCarousel({
-                carouselSpeed: 300,
-                trackerSummation: false,
-                captionBelow: true,
-                autoPlay: false,
-                largeFeatureWidth: 1170,
-                largeFeatureHeight: 680,
-                sidePadding: -550,
-                smallFeatureWidth: 650,
-                smallFeatureHeight: 415
+            $('.slick-codepen').slick({
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1,
+                dots: true,
+                variableWidth: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
             });
 
-            function reinit_carousel() {
-                var new_large_width, new_large_height, new_small_width, new_small_height, new_side_padding;
 
-                var x = Number($(window).width());
-                if (x < 992){
-                    new_large_width = 600;
-                    new_large_height = 350;
-                    new_small_width = 320;
-                    new_small_height = 205;
-                    new_side_padding = -50;
-                }
-                else if (x >= 992 && x < 1200) {
-                    new_large_width = 800;
-                    new_large_height = 465;
-                    new_small_width = 430;
-                    new_small_height = 275;
-                    new_side_padding = -200;
-                }
-                else if (x >= 1200 && x < 1600) {
-                    new_large_width = 1000;
-                    new_large_height = 580;
-                    new_small_width = 540;
-                    new_small_height = 345;
-                    new_side_padding = -375;
-                }
-                else {
-                    new_large_width = 1170;
-                    new_large_height = 680;
-                    new_small_width = 650;
-                    new_small_height = 415;
-                    new_side_padding = -550;
-                }
-                carousel =  $("#carousel").featureCarousel({
-                    carouselSpeed: 300,
-                    trackerSummation: false,
-                    captionBelow: true,
-                    autoPlay: false,
-                    largeFeatureWidth: new_large_width,
-                    largeFeatureHeight: new_large_height,
-                    sidePadding: new_side_padding,
-                    smallFeatureWidth: new_small_width,
-                    smallFeatureHeight: new_small_height
+            var prevSlideInterval = null,
+                nextSlideInterval = null,
+                slick_prev = $('.slick-prev');
 
-                });
-                carousel.initialize();
-            }
-            // listen resize window and resize chart
-            var resizeTimer;
-            $(window).on('resize', function (e) {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function () {
-//                    console.log($(window).width(), $(document).width());
-                    reinit_carousel();
-                }, 250);
+            function prevSlideAnimation() { $('.slick-codepen').slickPrev(); }
+            function nextSlideAnimation() { $('.slick-codepen').slickNext(); }
+
+            slick_prev.on('mouseenter', function() {
+                prevSlideInterval = window.setInterval(function(){ prevSlideAnimation() }, 200);
+            });
+
+            slick_prev.on('mouseleave', function() {
+                window.clearInterval(prevSlideInterval);
+            });
+
+            $('.slick-next').on('mouseenter', function(){
+                nextSlideInterval = window.setInterval(function(){ nextSlideAnimation() }, 200);
+            });
+
+            $('.slick-next').on('mouseleave', function() {
+                window.clearInterval(nextSlideInterval);
             });
         });
 	</script>
@@ -320,40 +308,44 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-container">
-				<div id="carousel">
-					<div class="carousel-feature">
-						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/slider-1.jpg"></a>
-						<div class="carousel-caption">
-							<p>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.</p>
-						</div>
-					</div>
-					<div class="carousel-feature">
-						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/slider-2.jpg"></a>
-						<div class="carousel-caption">
-							<p>For Car Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD can identify where your clients are from. You will see a tally and the country of origin of each plate – all in one Excel table with no need to input data yourself.</p>
-						</div>
-					</div>
-					<div class="carousel-feature">
-						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/slider-3.jpg"></a>
-						<div class="carousel-caption">
-							<p>For Logistics Centers and Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD offers the data you need to assess daily, weekly or monthly terminal loads.</p>
-						</div>
-					</div>
-					<div class="carousel-feature">
-						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/slider-4.jpg"></a>
-						<div class="carousel-caption">
-							<p>For Investors, Limbio PROD helps you judge investment appeal based on traffic density and site location.</p>
-						</div>
-					</div>
-					<div class="carousel-feature">
-						<a href="#"><img class="carousel-image" alt="Image Caption" src="./static/images/slider-5.jpg"></a>
-						<div class="carousel-caption">
-							<p>For Police, Limbio PROD helps you confirm presence or absence of vehicles at a specific time and location for reports and investigations.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="wrapper">
+                <div class="slick-codepen">
+                    <div>
+                        <img src="static/images/slider-1.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-2.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Car Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD can identify where your clients are from. You will see a tally and the country of origin of each plate – all in one Excel table with no need to input data yourself.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-3.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Logistics Centers and Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD offers the data you need to assess daily, weekly or monthly terminal loads.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-4.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Investors, Limbio PROD helps you judge investment appeal based on traffic density and site location.</p>
+                        </div>
+                    </div>
+
+                    <div class="slick-slide">
+                        <img src="static/images/slider-5.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Police, Limbio PROD helps you confirm presence or absence of vehicles at a specific time and location for reports and investigations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			<div class="flexGlyph1">
 				<button id="buttonOpportunities"><span class="glyphicon glyphicon-menu-down"></span></button>
 			</div>
