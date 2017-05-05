@@ -14,105 +14,160 @@
 	<script src="./static/JS/googlecaptcha.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
+	<link rel="stylesheet" type="text/css" href="static/SASS/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="static/SASS/slick-theme.css">
+	<script type="text/javascript" src="static/JS/slick.js"></script>
 
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./static/SASS/blocke.css">
 	<title>Limbio PROD</title>
 	<script type="text/javascript">
-	$(function() {
-		$('button#callPopupPrivacy').click( function(event){
-			event.preventDefault();
-			$('#overlay').fadeIn(400,
-			 	function(){
-					$('#popup_form')
-						.css('display', 'block')
-						.animate({opacity: 1, top: '20%'}, 200);
+
+		var config = {
+			apiKey: "AIzaSyAyx9o8F_IepFQBiK6u_2yBNpbuzKHYOZ0",
+			authDomain: "limbio-80668.firebaseapp.com",
+			databaseURL: "https://limbio-80668.firebaseio.com",
+			projectId: "limbio-80668",
+			storageBucket: "limbio-80668.appspot.com",
+			messagingSenderId: "990861939250"
+		};
+		firebase.initializeApp(config);
+
+		$(function() {
+			$('button#callPopupPrivacy').click( function(event){
+				event.preventDefault();
+				$('#overlay').fadeIn(400,
+					function(){
+						$('#popup_form')
+							.css('display', 'block')
+							.animate({opacity: 1, top: '20%'}, 200);
+				});
+			});
+
+			$('#popup_close, #overlay').click( function(){
+				$('#popup_form')
+					.animate({opacity: 0, top: '5%'}, 200,
+						function(){
+							$(this).css('display', 'none');
+							$('#overlay').fadeOut(400);
+						}
+					);
+			});
+
+			// scroll block
+			$('.scroll_button').click(function () {
+				var next_scroll = $(this).closest('.block_box').next();
+				$("html, body").animate({scrollTop: next_scroll.offset().top }, 500);
+			});
+
+			$('#buttonUpload').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorUpload').offset().top }, 500);
+			});
+			$('#buttonCustomer').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorCarouselle').offset().top }, 500);
+			});
+			$('#buttonBenefits').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorOpportunities').offset().top }, 500);
+			});
+			$('#buttonFeatures').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorFeatures').offset().top }, 500);
+			});
+			$('#buttonHow').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorHow').offset().top }, 500);
+			});
+			$('#buttonContacts').on('click',function () {
+				$("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
+			});
+
+
+			//upload
+			$('.uplInfo').fileupload({
+				type: 'POST',
+				dataType: 'json',
+	//			url: '/path/to/upload/handler.json',
+				autoUpload : false,
+				maxChunkSize: 10000000, // 10 MB
+				add: function (e, data) {
+					console.log(data);
+					var ub = $(this).closest('form').find('.upload_button'); // upload button
+					if(data.files[0].size < 1024 * 1024 * 1024){
+						$('.browse').text(data.files[0].name);
+						data.context = ub.click(function () {
+							data.context = $(this).text('Uploading...').replaceAll($(this));
+							data.submit();
+						});
+					}
+				},
+				done: function (e, data) {
+					console.log('done', e, data);
+					$.each(data.result.files, function (index, file) {
+						$('<p/>').text(file.name).appendTo(document.body);
+					});
+				},
+				progressall: function (e, data) {
+					var progress = parseInt(data.loaded / data.total * 100, 10);
+					console.log(progress);
+					$('.progress .progress-bar').css(
+							'width',
+							progress + '%'
+					).text(progress + '%');
+				}
+			});
+
+			$('.slick-codepen').slick({
+				centerMode: true,
+				centerPadding: '0px',
+				slidesToShow: 1,
+				dots: true,
+				variableWidth: true,
+				arrows: false,
+				responsive: [
+					{
+						breakpoint: 768,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '40px',
+							slidesToShow: 1
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '40px',
+							slidesToShow: 1
+						}
+					}
+				]
+			});
+
+
+			var prevSlideInterval = null,
+					nextSlideInterval = null,
+					slick_prev = $('.slick-prev');
+
+			function prevSlideAnimation() { $('.slick-codepen').slickPrev(); }
+			function nextSlideAnimation() { $('.slick-codepen').slickNext(); }
+
+			slick_prev.on('mouseenter', function() {
+				prevSlideInterval = window.setInterval(function(){ prevSlideAnimation() }, 200);
+			});
+
+			slick_prev.on('mouseleave', function() {
+				window.clearInterval(prevSlideInterval);
+			});
+
+			$('.slick-next').on('mouseenter', function(){
+				nextSlideInterval = window.setInterval(function(){ nextSlideAnimation() }, 200);
+			});
+
+			$('.slick-next').on('mouseleave', function() {
+				window.clearInterval(nextSlideInterval);
 			});
 		});
-
-		$('#popup_close, #overlay').click( function(){
-			$('#popup_form')
-				.animate({opacity: 0, top: '5%'}, 200,
-					function(){
-						$(this).css('display', 'none');
-						$('#overlay').fadeOut(400);
-					}
-				);
-		});
-
-		// scroll block
-		$('.scroll_button').click(function () {
-			var next_scroll = $(this).closest('.block_box').next();
-			$("html, body").animate({scrollTop: next_scroll.offset().top }, 500);
-		});
-
-		$('#buttonUpload').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorUpload').offset().top }, 500);
-		});
-		$('#buttonCustomer').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorCarouselle').offset().top }, 500);
-		});
-		$('#buttonBenefits').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorOpportunities').offset().top }, 500);
-		});
-		$('#buttonFeatures').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorFeatures').offset().top }, 500);
-		});
-		$('#buttonHow').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorHow').offset().top }, 500);
-		});
-		$('#buttonContacts').on('click',function () {
-			$("html, body").animate({scrollTop: $('#anchorFooter').offset().top }, 500);
-		});
-
-
-		//upload
-		$('.uplInfo').fileupload({
-			type: 'POST',
-			dataType: 'json',
-//			url: '/path/to/upload/handler.json',
-			autoUpload : false,
-			maxChunkSize: 10000000, // 10 MB
-			add: function (e, data) {
-				console.log(data);
-				var ub = $(this).closest('form').find('.upload_button'); // upload button
-				if(data.files[0].size < 1024 * 1024 * 1024){
-					$('.browse').text(data.files[0].name);
-					data.context = ub.click(function () {
-						data.context = $(this).text('Uploading...').replaceAll($(this));
-						data.submit();
-					});
-				}
-			},
-			done: function (e, data) {
-				console.log('done', e, data);
-				$.each(data.result.files, function (index, file) {
-					$('<p/>').text(file.name).appendTo(document.body);
-				});
-			},
-			progressall: function (e, data) {
-				var progress = parseInt(data.loaded / data.total * 100, 10);
-				console.log(progress);
-				$('.progress .progress-bar').css(
-						'width',
-						progress + '%'
-				).text(progress + '%');
-			}
-		});
-
-	});
-	</script>
-	<script>
-	  var config = {
-	    apiKey: "AIzaSyAyx9o8F_IepFQBiK6u_2yBNpbuzKHYOZ0",
-	    authDomain: "limbio-80668.firebaseapp.com",
-	    databaseURL: "https://limbio-80668.firebaseio.com",
-	    projectId: "limbio-80668",
-	    storageBucket: "limbio-80668.appspot.com",
-	    messagingSenderId: "990861939250"
-	  };
-	  firebase.initializeApp(config);
 	</script>
 
 </head>
@@ -306,14 +361,49 @@
 					</div>
 					<div class="col-lg-12">
 						<h2>What Limbio PROD's offer is for you?</h2>
-						<h4>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.</h4>
-					</div>
-					<div class="col-lg-12">
-						<div class="flexGlyph">
-							<button id="buttonOpportunities" class="scroll_button"><span class="glyphicon glyphicon-menu-down"></span></button>
-						</div>
 					</div>
 				</div>
+			</div>
+            <div class="wrapper">
+                <div class="slick-codepen">
+                    <div>
+                        <img src="static/images/slider-1.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Advertising and Marketing Research Agencies, Limbio PROD can analyze and confirm that a location is good for a commercial site, a billboard or attracting customers.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-2.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Car Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD can identify where your clients are from. You will see a tally and the country of origin of each plate – all in one Excel table with no need to input data yourself.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-3.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Logistics Centers and Parks without ANPR (Automated Number Plate Recognition) on cameras, Limbio PROD offers the data you need to assess daily, weekly or monthly terminal loads.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="static/images/slider-4.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Investors, Limbio PROD helps you judge investment appeal based on traffic density and site location.</p>
+                        </div>
+                    </div>
+
+                    <div class="slick-slide">
+                        <img src="static/images/slider-5.jpg" />
+                        <div class="carousel-caption">
+                            <p>For Police, Limbio PROD helps you confirm presence or absence of vehicles at a specific time and location for reports and investigations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="flexGlyph1">
+				<button id="buttonOpportunities"><span class="glyphicon glyphicon-menu-down"></span></button>
 			</div>
 		</div>
 		<div class="blockOpportunities block_box" id="anchorOpportunities">
